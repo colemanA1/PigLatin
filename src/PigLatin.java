@@ -5,7 +5,7 @@ import java.util.Scanner;
  */
 public class PigLatin {
 
-    public static String userWord() {
+    public static String userInput() {
         System.out.println("Welcome to Pig Latin Translator!");
         System.out.println("Enter a word to translate: ");
         Scanner scan = new Scanner(System.in);
@@ -14,34 +14,34 @@ public class PigLatin {
     }
 
     public static String[] Split(String word){
-        String lowerWord = word.toLowerCase();
-        String[] splitWord = lowerWord.split(" ");
+        String lowerCase = word.toLowerCase();
+        String[] splitWord = lowerCase.split(" ");
         return splitWord;
     }
 
 
     public static void translate(String word) {
-        String lowerWord = word.toLowerCase();
+        String lowerCase = word.toLowerCase();
         int place = 0;
-        char startLetter = lowerWord.charAt(0);             //When tried to use regex here this
+        char startLetter = lowerCase.charAt(0);             //When tried to use regex here this
         if (startLetter == 'a' ||
             startLetter == 'e' ||
             startLetter == 'i' ||
             startLetter == 'o' ||
             startLetter == 'u') {
-            lowerWord = lowerWord.concat("way");
-            System.out.println(lowerWord);
+            lowerCase = lowerCase.concat("way");
+            System.out.println(lowerCase);
 
         } else {
-            for (int i = 0; i < lowerWord.length(); i++) {
-                if (lowerWord.charAt(i) == 'a' ||
-                    lowerWord.charAt(i) == 'e' ||
-                    lowerWord.charAt(i) == 'i' ||
-                    lowerWord.charAt(i) == 'o' ||
-                    lowerWord.charAt(i) == 'u')
+            for (int i = 0; i < lowerCase.length(); i++) {
+                if (lowerCase.charAt(i) == 'a' ||
+                    lowerCase.charAt(i) == 'e' ||
+                    lowerCase.charAt(i) == 'i' ||
+                    lowerCase.charAt(i) == 'o' ||
+                    lowerCase.charAt(i) == 'u')
                 {
-                    String pigWord = lowerWord.substring(i)+ lowerWord.substring(0,i) + "ay";
-                    System.out.println(pigWord);
+                    String findVowels = lowerCase.substring(i)+ lowerCase.substring(0,i) + "ay";
+                    System.out.println(findVowels);
                     break;
                 }
             }
@@ -49,10 +49,10 @@ public class PigLatin {
     }
 
     public static void main(String[] args) {
-        String translateWord = userWord();
-        String[] stringArray = Split(translateWord);
-        for(int i = 0;i<stringArray.length;i++){
-            translate(stringArray[i]);
+        String userInputMain = userInput();
+        String[] stringArrayMain = Split(userInputMain);
+        for(int i = 0;i<stringArrayMain.length;i++){
+            translate(stringArrayMain[i]);
         }
     }
 }
